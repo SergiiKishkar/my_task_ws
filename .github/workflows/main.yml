@@ -1,0 +1,31 @@
+#------------------------------
+# Test GitHub Actions + Ansible
+# Sergii Kiskar August 2022, Kyiv
+# 
+# 
+#-----------------------------
+name: repository-push-control
+on: 
+  push:
+    branches: [ "main" ]
+
+jobs:
+  changes:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git clone repository
+        uses: actions/checkout@v3
+        
+      - name: Starting Playbook
+        env:
+          ext: "Ext of file of configuration"
+          req_name: "Name of file requirements"
+          req_name_config:  "Name of file configuration"             
+        run: |
+          echo "Starting Ansible...."
+          cd $GITHUB_WORKSPACE/Ansible
+          ansible-playbook ansible_test_playbook.yml --extra-vars "ans_name_conf=$req_name ans_path=$GITHUB_WORKSPACE"
+          
+          
+          
+          
