@@ -80,7 +80,7 @@
  #     name: "{{db_name}}"
  #     state: present
   - name: Enable remote login to mysql
-    lineinfile:
+    ansible.builtin.lineinfile:
       path: /etc/mysql/mysql.conf.d/mysqld.cnf
       regexp: '^bind-address'
       line: bind-address = 0.0.0.0
@@ -92,35 +92,35 @@
   # -------------------------- Configuration SSH
   
   - name: Отключить логин по паролю и разрешить логиниться только с помощью publickey.
-    lineinfile: 
+    ansible.builtin.lineinfile: 
       path: /etc/ssh/sshd_config 
       regexp: '^#?AuthenticationMethods' 
       line: AuthenticationMethods publickey
       backup: yes
       
   - name: Отключить логин по паролю и разрешить логиниться только с помощью publickey.
-    lineinfile: 
+    ansible.builtin.lineinfile: 
       path: /etc/ssh/sshd_config 
       regexp: '^#?PasswordAuthentication'
       line: PasswordAuthentication no
       backup: yes
       
   - name: Отключить логин по паролю и разрешить логиниться только с помощью publickey.
-    lineinfile: 
+    ansible.builtin.lineinfile: 
       path: /etc/ssh/sshd_config 
       regexp: '^#?ChallengeResponseAuthentication'
       line: ChallengeResponseAuthentication no
       backup: yes  
    
   - name: Отключить логин по паролю и разрешить логиниться только с помощью publickey.
-    lineinfile: 
+    ansible.builtin.lineinfile: 
       path: /etc/ssh/sshd_config 
       regexp: '^#?PubkeyAuthentication'
       line: PubkeyAuthentication yes
       backup: yes
       
   - name: Change Port 22 to 1234
-    lineinfile: 
+    ansible.builtin.lineinfile: 
       path: /etc/ssh/sshd_config 
       regexp: '^#?Port 22'
       line: Port 1234
@@ -142,7 +142,7 @@
       name: mysql
       state: restarted
       
-  - name: Перезапуск sshd
+  - name: Restat sshd
     service:
       name: sshd
       state: restarted
