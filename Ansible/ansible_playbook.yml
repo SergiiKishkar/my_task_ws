@@ -35,8 +35,7 @@
       update_cache: true
   - name: Install ppa:ondrej/php
     ansible.builtin.apt_repository:
-      name: ppa:ondrej/php
-      state: present
+      repo: ppa:ondrej/php
       update_cache: true    
     register: results
   - debug:
