@@ -42,6 +42,14 @@
       state: present
       update_cache: true    
       
+  - name: checking
+    ansible.builtin.command: 
+      # chdir: "{{ path_dest_environment }}"
+      cmd: php -v # ls -lh {{ ans_name_conf }}/bin/  ls -lh {{ ans_name_conf }}/bin 
+    register: command_output
+  - name: command output
+    ansible.builtin.debug:
+      var: command_output.stdout_lines
       
       
       
