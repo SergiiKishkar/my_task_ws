@@ -76,10 +76,10 @@
  #     priv: '*.*:ALL'
  #     host: '%'
  #     state: present
-  - name: creating medium_db
-    mysql_db:
-      name: "{{db_name}}"
-      state: present
+ # - name: creating medium_db
+ #   mysql_db:
+ #     name: "{{db_name}}"
+ #     state: present
   - name: Enable remote login to mysql
     lineinfile:
       path: /etc/mysql/mysql.conf.d/mysqld.cnf
