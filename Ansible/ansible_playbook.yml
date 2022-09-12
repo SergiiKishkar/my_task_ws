@@ -93,28 +93,28 @@
   # -------------------------- Configuration SSH
   
   - name: Отключить логин по паролю и разрешить логиниться только с помощью publickey.
-      lineinfile: 
+    lineinfile: 
       path: /etc/ssh/sshd_config 
       regexp: '^#?AuthenticationMethods' 
       line: 'AuthenticationMethods publickey'
       backup: yes
       
- - name: Отключить логин по паролю и разрешить логиниться только с помощью publickey.
-      lineinfile: 
+  - name: Отключить логин по паролю и разрешить логиниться только с помощью publickey.
+    lineinfile: 
       path: /etc/ssh/sshd_config 
       regexp: '^#?PasswordAuthentication'
       line: 'PasswordAuthentication no'
       backup: yes
       
   - name: Отключить логин по паролю и разрешить логиниться только с помощью publickey.
-      lineinfile: 
+    lineinfile: 
       path: /etc/ssh/sshd_config 
       regexp: '^#?ChallengeResponseAuthentication'
       line: 'ChallengeResponseAuthentication no'
       backup: yes  
    
   - name: Отключить логин по паролю и разрешить логиниться только с помощью publickey.
-      lineinfile: 
+    lineinfile: 
       path: /etc/ssh/sshd_config 
       regexp: '^#?PubkeyAuthentication'
       line: 'PubkeyAuthentication yes'
