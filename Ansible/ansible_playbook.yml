@@ -88,12 +88,50 @@
       backup: yes
     notify:
        - Restart mysql
+       
+       
+  # -------------------------- Configuration SSH
+  
+  - name: Отключить логин по паролю и разрешить логиниться только с помощью publickey.
+      lineinfile: 
+      path: /etc/ssh/sshd_config 
+      regexp: '^#?AuthenticationMethods' 
+      line: 'AuthenticationMethods publickey'
+      backup: yes
+      
+ - name: Отключить логин по паролю и разрешить логиниться только с помощью publickey.
+      lineinfile: 
+      path: /etc/ssh/sshd_config 
+      regexp: '^#?PasswordAuthentication'
+      line: 'PasswordAuthentication no'
+      backup: yes
+      
+  - name: Отключить логин по паролю и разрешить логиниться только с помощью publickey.
+      lineinfile: 
+      path: /etc/ssh/sshd_config 
+      regexp: '^#?ChallengeResponseAuthentication'
+      line: 'ChallengeResponseAuthentication no'
+      backup: yes  
+   
+  - name: Отключить логин по паролю и разрешить логиниться только с помощью publickey.
+      lineinfile: 
+      path: /etc/ssh/sshd_config 
+      regexp: '^#?PubkeyAuthentication'
+      line: 'PubkeyAuthentication yes'
+      backup: yes  
+    
+    
   
   handlers:
   - name: Restart mysql
     service:
       name: mysql
-      state: restarted    
+      state: restarted
+      
+  - name: Перезапуск sshd
+    service:
+      name: sshd
+      state: restarted
       
       
       
