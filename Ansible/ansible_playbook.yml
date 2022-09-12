@@ -13,7 +13,7 @@
     ansible.builtin.apt:
       update_cache: true
  
- - name: Install NGINX Packages
+  - name: Install NGINX Packages
     ansible.builtin.apt:
       name: nginx
       state: latest
