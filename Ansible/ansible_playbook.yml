@@ -77,15 +77,15 @@
       host: '%'
       state: present
   - name: creating medium_db
-      mysql_db:
-        name: "{{db_name}}"
-        state: present
+    mysql_db:
+      name: "{{db_name}}"
+      state: present
   - name: Enable remote login to mysql
     lineinfile:
-       path: /etc/mysql/mysql.conf.d/mysqld.cnf
-       regexp: '^bind-address'
-       line: 'bind-address = 0.0.0.0'
-       backup: yes
+      path: /etc/mysql/mysql.conf.d/mysqld.cnf
+      regexp: '^bind-address'
+      line: 'bind-address = 0.0.0.0'
+      backup: yes
     notify:
        - Restart mysql
   
