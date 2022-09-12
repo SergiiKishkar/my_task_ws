@@ -12,12 +12,8 @@
   - name: Basically "apt-get update"
     ansible.builtin.apt:
       update_cache: true
-  - name: Install Python
-    ansible.builtin.apt:
-      name: python3-pip
-      state: present
-      update_cache: true
-  - name: Install NGINX Packages
+ 
+ - name: Install NGINX Packages
     ansible.builtin.apt:
       name: nginx
       state: latest
@@ -39,7 +35,15 @@
       update_cache: true    
     register: results
   - debug:
-      var: results    
+      var: results
+  - name: Install PHP 8.1 FPM
+    ansible.builtin.apt:
+      name: php8.1-fpm
+      state: present
+      update_cache: true    
+      
+      
+      
       
   #- name: Install Ansible
   #  ansible.builtin.apt:
