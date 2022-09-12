@@ -22,12 +22,25 @@
       name: nginx
       state: latest
       update_cache: true
-  - name: Start Service
+  - name: Start NGINX Service
     ansible.builtin.service:
       name: nginx
       state: restarted
       enabled: true
-      
+  
+  - name: Install software-properties-common
+    ansible.builtin.apt:
+      name: software-properties-common
+      state: present
+      update_cache: true
+  - name: Install ppa:ondrej/php
+    ansible.builtin.apt_repository:
+      name: ppa:ondrej/php
+      state: present
+      update_cache: true    
+    register: results
+  - debug:
+      var: results    
       
   #- name: Install Ansible
   #  ansible.builtin.apt:
