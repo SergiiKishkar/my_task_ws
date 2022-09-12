@@ -18,12 +18,12 @@
       state: present
       update_cache: true
   - name: Install NGINX Packages
-      ansible.builtin.apt:
+    ansible.builtin.apt:
       name: nginx
       state: latest
       update_cache: true
   - name: Start Service
-      ansible.builtin.service:
+    ansible.builtin.service:
       name: nginx
       state: restarted
       enabled: true
