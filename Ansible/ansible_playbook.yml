@@ -44,8 +44,7 @@
       
   - name: checking
     ansible.builtin.command: 
-      # chdir: "{{ path_dest_environment }}"
-      cmd: php -v # ls -lh {{ ans_name_conf }}/bin/  ls -lh {{ ans_name_conf }}/bin 
+      cmd: php -v  
     register: command_output
   - name: command output
     ansible.builtin.debug:
@@ -118,7 +117,22 @@
       path: /etc/ssh/sshd_config 
       regexp: '^#?PubkeyAuthentication'
       line: 'PubkeyAuthentication yes'
-      backup: yes  
+      backup: yes
+      
+  - name: Change Port 22 to 1234
+    lineinfile: 
+      path: /etc/ssh/sshd_config 
+      regexp: '^#?Port 22'
+      line: 'Port 1234'
+      backup: yes
+      
+  - name: checking sshd_config 
+    ansible.builtin.command: 
+      cmd: cat /etc/ssh/sshd_config
+    register: command_output
+  - name: command output
+    ansible.builtin.debug:
+      var: command_output.stdout_lines
     
     
   
