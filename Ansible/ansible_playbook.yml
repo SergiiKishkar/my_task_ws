@@ -71,7 +71,7 @@
       line: bind-address = 0.0.0.0
       backup: yes
     notify:
-       - Restart mysql
+      - Restart mysql
    
   - name: creating mysql user (medium_post)
     mysql_user:
