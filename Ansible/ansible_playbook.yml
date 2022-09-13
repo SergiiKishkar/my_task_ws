@@ -73,21 +73,21 @@
     notify:
       - Restart mysql
    
-  - name: creating mysql user (medium_post)
-    mysql_user:
-      name: "{{ db_user }}"
-      password: "{{ db_pass }}"
-      priv: '*.*:ALL'
-      host: '%'
-      state: present
+ # - name: creating mysql user (medium_post)
+ #   mysql_user:
+ #     name: "{{ db_user }}"
+ #     password: "{{ db_pass }}"
+ #     priv: '*.*:ALL'
+ #     host: '%'
+ #     state: present
  
- # - name: Create MariaDB User
- #   mysql_user: 
- #    name: "{{ dbuser }}" 
- #    password: "{{ dbpasswd }}" 
- #   host: "{{ remote_host_ip }}"
- #    priv: '*.*:ALL,GRANT'
- #    state: present
+  - name: Create MariaDB User
+    mysql_user: 
+      name: "{{ db_user }}" 
+      password: "{{ db_pass }}" 
+      host: "{{ remote_host_ip }}"
+      priv: '*.*:ALL,GRANT'
+      state: present
  
  
   - name: creating medium_db
