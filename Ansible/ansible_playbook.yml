@@ -2,12 +2,7 @@
 - name: My Test Playbook
   hosts: localhost
   become: true
-
-  vars:
-   # ans_name_conf: "Python environment name without extension"
-   # path_dir_venvs: "{{ ans_path }}/venvs/" #Path to the folder with configuration files
-   # path_dest_environment: /opt/python_venvs
-        
+  
   tasks:
   - name: Basically "apt-get update"
     ansible.builtin.apt:
@@ -68,17 +63,7 @@
       name: mysql
       state: started
       enabled: yes
- # - name: creating mysql user (medium_post)
- #   mysql_user:
- #     name: "{{db_user}}"
- #     password: "{{db_pass}}"
- #     priv: '*.*:ALL'
- #     host: '%'
- #     state: present
- # - name: creating medium_db
- #   mysql_db:
- #     name: "{{db_name}}"
- #     state: present
+      
   - name: Enable remote login to mysql
     ansible.builtin.lineinfile:
       path: /etc/mysql/mysql.conf.d/mysqld.cnf
@@ -87,6 +72,21 @@
       backup: yes
     notify:
        - Restart mysql
+   
+  - name: creating mysql user (medium_post)
+    mysql_user:
+      name: "{{db_user}}"
+      password: "{{db_pass}}"
+      priv: '*.*:ALL'
+      host: '%'
+      state: present
+ 
+  - name: creating medium_db
+    mysql_db:
+      name: "{{db_name}}"
+      state: present     
+       
+       
        
        
   # -------------------------- Configuration SSH
