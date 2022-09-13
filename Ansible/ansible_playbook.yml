@@ -133,9 +133,7 @@
   - name: command output
     ansible.builtin.debug:
       var: command_output.stdout_lines
-    
-    
-  
+ 
   handlers:
   - name: Restart mysql
     service:
@@ -146,45 +144,3 @@
     service:
       name: sshd
       state: restarted
-      
-      
-      
-      
-      
-  #- name: Install Ansible
-  #  ansible.builtin.apt:
-  #    name: ansible
-  #    state: present
-  #    update_cache: true
- 
-  #- name: Creating a projects folder
-  #  file:
-  #    path: "{{ path_dest_environment }}"
-  #    state: directory
-  #    mode: 0755  
-      
-  #- name: Copying a configuration file to a remote machine
-  #  copy:
-  #    src: "{{ path_dir_venvs }}{{ ans_name_conf }}.txt" 
-  #    dest: "{{ path_dest_environment }}"
-  #    mode: 0555
-           
-  #- name: Setting the working environment and dependencies
-  #  shell: | 
-  #    cd {{ path_dest_environment }}
-  #    echo "ans_name_cohf - {{ ans_name_conf }}"
-  #    python3 -m venv {{ ans_name_conf }}
-  #    . {{ ans_name_conf }}/bin/activate
-  #    pip install -r {{ ans_name_conf }}.txt
-  #  register: results
-  #- debug:
-  #    var: results
-
-  #- name: run config
-  #  ansible.builtin.command: 
-  #    chdir: "{{ path_dest_environment }}"
-  #    cmd: ls -lh {{ ans_name_conf }}/bin/ # ls -lh {{ ans_name_conf }}/bin 
-  #  register: command_output
-  #- name: command output
-  #  ansible.builtin.debug:
-  #    var: command_output.stdout_lines
