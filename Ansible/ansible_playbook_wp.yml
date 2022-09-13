@@ -89,14 +89,14 @@
     - name: Download and unpack latest WordPress
       unarchive:
         src: https://wordpress.org/latest.tar.gz
-        dest: "/var/www/{{ http_host }}"
+        dest: " /var/www/{{ http_host }} "
         remote_src: yes
-        creates: "/var/www/{{ http_host }}/wordpress"
+        creates: " /var/www/{{ http_host }}/wordpress "
       tags: [ wordpress ]
 
     - name: Set ownership
       file:
-        path: "/var/www/{{ http_host }}"
+        path: " /var/www/{{ http_host }} "
         state: directory
         recurse: yes
         owner: www-data
@@ -114,7 +114,7 @@
     - name: Set up wp-config
       template:
         src: "files/wp-config.php.j2"
-        dest: "/var/www/{{ http_host }}/wordpress/wp-config.php"
+        dest: " /var/www/{{ http_host }}/wordpress/wp-config.php "
       tags: [ wordpress ]
 
  # handlers:
