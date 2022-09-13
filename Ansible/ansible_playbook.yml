@@ -81,28 +81,20 @@
  #     host: '%'
  #     state: present
  
-  #- name: Create MariaDB User
-  #  mysql_user: 
-  #    name: "{{ db_user }}" 
-  #    password: "{{ db_pass }}" 
-  #    host: "{{ remote_host_ip }}"
-  #    priv: '*.*:ALL,GRANT'
-  #    state: present
   
-  
-  - name: "Mysql Configuration - Resetting RootPassword"
-    mysql_user:
-      login_user: root
-      login_password: ''
-      name: root
-      host_all: yes 
-      password: "{{ db_pass }}"
+ # - name: "Mysql Configuration - Resetting RootPassword"
+ #   mysql_user:
+ #     login_user: root
+ #     login_password: ''
+ #     name: root
+ #     host_all: yes 
+ #     password: "{{ db_pass }}"
  
  
-  - name: creating medium_db
-    mysql_db:
-      name: "{{ db_name }}"
-      state: present     
+ # - name: creating medium_db
+ #   mysql_db:
+ #     name: "{{ db_name }}"
+ #     state: present     
        
        
        
