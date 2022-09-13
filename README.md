@@ -10,6 +10,16 @@ my_task_ws/Ansible/ansible_playbook_general.yml
 
 - install and configure CSF/LFD (https://configserver.com/cp/csf.html)
 - install Wordpress
+      domain_name: wp.com
+      app_name: wordpress
+      php_fpm_sock: /run/php/php-fpm.sock
+
+      sites_path: /var/www/http_host
+
+     db_name: wordpress
+     db_host: localhost
+     db_username: wordpressuser
+     db_password: wordpresspass
 
 ansible_playbook.yml 
 my_task_ws/Ansible/ansible_playbook.yml
