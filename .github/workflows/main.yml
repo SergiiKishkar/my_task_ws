@@ -24,7 +24,7 @@ jobs:
         run: |
           echo "Starting Ansible...."
           cd $GITHUB_WORKSPACE/Ansible
-          #  ansible-playbook ansible_playbook.yml --extra-vars "ans_name_conf=$req_name ans_path=$GITHUB_WORKSPACE"
+          ansible-playbook ansible_playbook.yml
           ansible-playbook ansible_playbook_general.yml
           ansible-playbook ansible_playbook_wp.yml
           
