@@ -73,19 +73,7 @@
     notify:
       - Restart mysql
       
-  - name: Secures the MySQL root user
-    mysql_user:
-      name: "root" 
-      password: "" 
-      host: "{{ item }}"
-      login_password: "" 
-      login_user: root
-    loop:
-        - 127.0.0.1
-        - localhost
-        - ::1
-        - ""   
-      
+
    
  # - name: creating mysql user (medium_post)
  #   mysql_user:
