@@ -53,25 +53,25 @@
   #    tags: [ apache ]
 
    # MySQL Configuration
-    # Run mysql_secure_installation
-    #- name: MYSQL - Change root user password
-    #  mysql_user:
-    #    login_user: root
-    #    name: root
-    #    password: "{{ mysql_root_password.stdout }}"
-        
-    #   login_unix_socket: /var/run/mysqld/mysqld.sock
-   
-   
-   
-    - name: Set the root password
+    
+    - name: MYSQL - Change root user password
       mysql_user:
         name: root
-        password: "{{ mysql_root_password }}"
+        password: "{{ mysql_root_password.stdout }}"
         login_user: root
         login_unix_socket: /var/run/mysqld/mysqld.sock
-      # when: mysql_root_password is defined and mycnf.stat.exists == false
-      tags: [ mysql, mysql-root ]
+      when: mysql_root_password is defined and mycnf.stat.exists == false
+   
+   
+   
+    #- name: Set the root password
+    #  mysql_user:
+    #    name: root
+    #    password: "{{ mysql_root_password }}"
+    #    login_user: root
+    #    login_unix_socket: /var/run/mysqld/mysqld.sock
+    #   when: mysql_root_password is defined and mycnf.stat.exists == false
+    #  tags: [ mysql, mysql-root ]
 
     - name: Remove all anonymous user accounts
       mysql_user:
