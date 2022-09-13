@@ -7,4 +7,4 @@
     - ansible-role-csf
     - ansible-role-wordpress
     # - install-configserver-csf
-    # - { role: install-configserver-csf, when: ansible_system == 'Linux' }
+
