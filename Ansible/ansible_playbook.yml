@@ -81,13 +81,21 @@
  #     host: '%'
  #     state: present
  
-  - name: Create MariaDB User
-    mysql_user: 
-      name: "{{ db_user }}" 
-      password: "{{ db_pass }}" 
-      host: "{{ remote_host_ip }}"
-      priv: '*.*:ALL,GRANT'
-      state: present
+  - name: Removes all anonymous user accounts
+    community.mysql.mysql_user:
+      name: ''
+      host_all: yes
+      state: absent
+  
+  
+  
+  #- name: Create MariaDB User
+  #  mysql_user: 
+  #    name: "{{ db_user }}" 
+  #    password: "{{ db_pass }}" 
+  #    host: "{{ remote_host_ip }}"
+  #    priv: '*.*:ALL,GRANT'
+  #    state: present
  
  
   - name: creating medium_db
