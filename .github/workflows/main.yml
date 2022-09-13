@@ -25,8 +25,8 @@ jobs:
           echo "Starting Ansible...."
           cd $GITHUB_WORKSPACE/Ansible
           ansible-playbook ansible_playbook.yml
-          ansible-playbook ansible_playbook_general.yml
-          # ansible-playbook ansible_playbook_wp.yml
+          # ansible-playbook ansible_playbook_general.yml
+          ansible-playbook ansible_playbook_wp.yml
           
           
           
