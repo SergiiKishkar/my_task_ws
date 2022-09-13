@@ -128,7 +128,8 @@
       
   - name: checking sshd_config 
     ansible.builtin.command: 
-      cmd: cat /etc/ssh/sshd_config
+      cmd: cat /etc/mysql/mysql.conf.d/mysqld.cnf      
+      # cmd: cat /etc/ssh/sshd_config
     register: command_output
   - name: command output
     ansible.builtin.debug:
