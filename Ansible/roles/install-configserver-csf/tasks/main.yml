@@ -4,7 +4,7 @@
     path: /usr/sbin/csf
   register: csf_check
   changed_when: false
-  always_run: yes
+  # always_run: yes
   tags: always
 
 - name: Create csf_installed variable.
