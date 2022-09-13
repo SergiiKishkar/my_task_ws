@@ -60,7 +60,7 @@
         password: "{{ mysql_root_password.stdout }}"
         login_user: root
         login_unix_socket: /var/run/mysqld/mysqld.sock
-        when: mysql_root_password is defined and mycnf.stat.exists == false
+    when: mysql_root_password is defined and mycnf.stat.exists == false
    
    
    # - name: Set the root password
