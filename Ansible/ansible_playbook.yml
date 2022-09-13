@@ -49,9 +49,9 @@
 
   - name: Installing Mysql  and dependencies
     package:
-     name: "{{item}}"
-     state: present
-     update_cache: yes
+      name: "{{ item }}"
+      state: present
+      update_cache: yes
     loop:
       - mysql-server
       - mysql-client 
@@ -77,10 +77,10 @@
     mysql_user:
       name: "root" 
       password: "" 
-      host: "{{item}}"
+      host: "{{ item }}"
       login_password: "" 
       login_user: root
-      with_items:
+    loop:
         - 127.0.0.1
         - localhost
         - ::1
