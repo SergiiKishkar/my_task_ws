@@ -6,9 +6,9 @@
     - vars/default.yml
 
   tasks:
-    #- name: Install prerequisites
-    #  apt: name=aptitude update_cache=yes state=latest force_apt_get=yes
-    #  tags: [ system ]
+    - name: Install prerequisites
+      apt: name=aptitude update_cache=yes state=latest force_apt_get=yes
+      tags: [ system ]
 
    # MySQL Configuration
    
@@ -50,12 +50,12 @@
     #  tags: [ mysql ]
 
    
-   - name: "Mysql Configuration - Creating Wordpress Database"
-     mysql_db:
-       login_user: root
-       login_password: "{{mysql_root_password}}"
-       db: "{{ mysql_db }}"
-       state: present  
+    - name: "Mysql Configuration - Creating Wordpress Database"
+      mysql_db:
+        login_user: root
+        login_password: "{{mysql_root_password}}"
+        db: "{{ mysql_db }}"
+        state: present  
    
    
    
