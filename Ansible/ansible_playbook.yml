@@ -81,11 +81,12 @@
  #     host: '%'
  #     state: present
  
-  - name: Removes all anonymous user accounts
+  - name: Create database user with name 'bob' and password '12345' with all database privileges
     community.mysql.mysql_user:
-      name: ''
-      host_all: yes
-      state: absent
+    name: bob
+    password: 12345
+    priv: '*.*:ALL'
+    state: present
   
   
   
