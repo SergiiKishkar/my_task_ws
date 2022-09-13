@@ -1,5 +1,5 @@
 ---
-- name:playbook_general
+- name: playbook_general
   hosts: localhost
   become: true
   
