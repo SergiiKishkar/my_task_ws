@@ -49,13 +49,23 @@
     #    login_password: "{{ mysql_root_password }}"
     #  tags: [ mysql ]
 
-    - name: Creates database for WordPress
-      mysql_db:
-        name: "{{ mysql_db }}"
-        state: present
-        login_user: root
-        login_password: "{{ mysql_root_password }}"
-      tags: [ mysql ]
+   
+   - name: "Mysql Configuration - Creating Wordpress Database"
+     mysql_db:
+       login_user: root
+       login_password: "{{mysql_root_password}}"
+       db: "{{ mysql_db }}"
+       state: present  
+   
+   
+   
+   #- name: Creates database for WordPress
+   #  mysql_db:
+   #     name: "{{ mysql_db }}"
+   #     state: present
+   #     login_user: root
+   #     login_password: "{{ mysql_root_password }}"
+   #  tags: [ mysql ]
 
     - name: Create MySQL user for WordPress
       mysql_user:
