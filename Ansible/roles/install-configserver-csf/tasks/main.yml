@@ -10,7 +10,7 @@
 - name: Create csf_installed variable.
   set_fact:
     csf_installed: "{{ csf_check.stat.exists|bool }}"
-  always_run: yes
+  # always_run: yes
   tags: always
 
 - name: Include the CSF Installer Task
