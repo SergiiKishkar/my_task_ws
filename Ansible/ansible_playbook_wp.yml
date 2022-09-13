@@ -1,6 +1,6 @@
 ---
 - name: Install Wordpress
-- hosts: localhost
+  hosts: localhost
   become: true
   vars_files:
     - vars/default.yml
